@@ -15,6 +15,7 @@ class AppColors {
   static const border = Color(0xFFE8E2D4);
   static const success = Color(0xFF4E8A58);
   static const error = Color(0xFFC0392B);
+  static const blue = Color(0xFF2A5296);
 
   // Dark theme
   static const darkBackground = Color(0xFF0E1823);

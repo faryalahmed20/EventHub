@@ -1,4 +1,6 @@
+import 'package:eventhub/views/roleSelectionScreen.dart';
 import 'package:eventhub/views/splash.dart';
+import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -11,11 +13,11 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
       title: 'Event Hub',
       theme: ThemeData(
       ),
-      home: const SplashScreen(),
+      home: Roleselection(),
     );
   }
 }
