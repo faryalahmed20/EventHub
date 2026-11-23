@@ -157,13 +157,7 @@ class ProfileScreen extends StatelessWidget {
               ),
 
               const SizedBox(height: 10),
-/*leading = left
-title = center/main text
-trailing = right
-dense = compact height
-const = fixed widget
-*/
-              // My Bookings
+             // My Bookings
               ListTile(
                 dense: true,
                 leading: const Icon(

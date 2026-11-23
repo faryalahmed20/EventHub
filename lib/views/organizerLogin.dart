@@ -1,5 +1,7 @@
 import 'package:eventhub/constants/colors.dart';
 import 'package:eventhub/controller/loginController.dart';
+
+import 'package:eventhub/views/organizersEventScreen.dart';
 import 'package:eventhub/views/resetPassword.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -127,13 +129,7 @@ class _OrganizerloginState extends State<Organizerlogin> {
 
                 const SizedBox(height: 8),
 
-                // Password Field
-                /*Obx() kyun use kiya?
-isPasswordHidden ek RxBool hai, yani reactive variable.
-//////// Jab value true hogi → password hide hoga.
-////////////////// Jab eye icon click hoga → togglePassword() value ko false karega.
-///////////Obx() detect karega ke value change hui hai aur UI automatically rebuild hoga.
-//////Password show/hide karne ke liye setState() ki zaroorat nahi.*/
+               
                 Obx(
                   () => TextField(
                     controller: controller.passwordController,
@@ -144,12 +140,12 @@ isPasswordHidden ek RxBool hai, yani reactive variable.
                       filled: true,
                       fillColor: AppColors.surface,
 
-                      // Eye Icon
+                     
                       suffixIcon: IconButton(
                         onPressed: () {
                           controller.togglePassword();
                         },
-                        //: Icons.visibility, Ab eye icon bhi GetX ki reactive value se update hoga.
+                        
                         icon: Icon(
                           controller.isPasswordHidden.value
                               ? Icons.visibility_off
@@ -219,9 +215,8 @@ isPasswordHidden ek RxBool hai, yani reactive variable.
                       else{
                         Get.snackbar("Success", "Login Successfully");
                       }
-                      return
-                      controller
-                          .login(); // Login functionality baad mein add karenge
+                      Get.offAll(()=>Organizerseventscreen());
+                      return controller.login(); 
                     },
 
                     style: ElevatedButton.styleFrom(

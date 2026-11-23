@@ -1,8 +1,12 @@
 
 import 'package:eventhub/constants/colors.dart';
 import 'package:eventhub/views/explore.dart';
+
+
 import 'package:eventhub/views/homeScreen.dart';
+
 import 'package:eventhub/views/myBookings.dart';
+
 import 'package:eventhub/views/profile.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -21,7 +25,7 @@ class _BottomnavigationbarState extends State<Bottomnavigationbar> {
 
   @override
   void initState() {
-    screens.addAll([Homescreen(),Explore(),BookingConfirmedScreen(),ProfileScreen()]);
+    screens.addAll([HomeScreen(),ExploreEvents(),Mybookings(),ProfileScreen()]);
     super.initState();
   }
   @override

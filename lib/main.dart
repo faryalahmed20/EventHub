@@ -1,3 +1,4 @@
+
 import 'package:eventhub/views/splash.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -11,6 +12,8 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GetMaterialApp(title: 'Event Hub', home: const SplashScreen());
+    return GetMaterialApp(
+    title: 'Event Hub',
+    home:  SplashScreen());
   }
 }

@@ -19,175 +19,178 @@ class _RoleselectionState extends State<Roleselection> {
   Widget build(BuildContext context) {
     return Scaffold(
        backgroundColor: AppColors.background,
-      body: SafeArea(
-        child: SingleChildScrollView(
-          
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              SizedBox(height: 20),
-              Text(
-                "EventHub",
-                style: TextStyle(
-                  color: AppColors.blue,
-                  fontWeight: FontWeight.bold,
-                  fontSize: 40,
+      body: Container(
+        padding: EdgeInsets.all(20),
+        child: SafeArea(
+          child: SingleChildScrollView(
+            
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                SizedBox(height: 20),
+                Text(
+                  "EventHub",
+                  style: TextStyle(
+                    color: AppColors.blue,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 40,
+                  ),
                 ),
-              ),
-              Text(
-                "Discover .Learn .Connect",
-                style: TextStyle(color: AppColors.darkSage, fontSize: 15),
-              ),
-              SizedBox(height: 20),
-              Text(
-                "Choose your Role",
-                style: TextStyle(
-                  color: AppColors.blue,
-                  fontWeight: FontWeight.bold,
-                  fontSize: 30,
+                Text(
+                  "Discover .Learn .Connect",
+                  style: TextStyle(color: AppColors.darkSage, fontSize: 15),
                 ),
-              ),
-              Text(
-                "SignIn to Continue",
-                style: TextStyle(color: AppColors.darkSage, fontSize: 15),
-              ),
-              SizedBox(height: 10),
-              InkWell(
-                
-                onTap: (){
-                  roleselectioncontroller.selectedrole.value="User";
-                },
-                child: Container(
-                  padding: EdgeInsets.all(20),
-                  margin: EdgeInsets.all(15),
+                SizedBox(height: 20),
+                Text(
+                  "Choose your Role",
+                  style: TextStyle(
+                    color: AppColors.blue,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 30,
+                  ),
+                ),
+                Text(
+                  "SignIn to Continue",
+                  style: TextStyle(color: AppColors.darkSage, fontSize: 15),
+                ),
+                SizedBox(height: 10),
+                InkWell(
                   
-                  decoration: BoxDecoration(
-                    color: AppColors.border,
-                    border: Border.all(color: AppColors.captionText, width: 2),
-                    borderRadius: BorderRadius.circular(20),
-                  ),
-                  child: Row(
-                    children: [
-                      Icon(Icons.person, color: AppColors.blue),
-                       Obx((){
-                        final finalselectedRole = roleselectioncontroller.selectedrole.value =="User";
-                        return Checkbox(value: finalselectedRole, onChanged: (Checked){
-                         roleselectioncontroller.selectedrole.value= Checked==true?"User":'';
-                        });
-                      }),
-                      Expanded(
-                        child: Column(
-                          children: [
-                            Text(
-                              "Continue as User",
-                              style: TextStyle(
-                                fontSize: 24,
-                                fontWeight: FontWeight.bold,
-                                color: AppColors.blue,
+                  onTap: (){
+                    roleselectioncontroller.selectedrole.value="User";
+                  },
+                  child: Container(
+                    padding: EdgeInsets.all(20),
+                    margin: EdgeInsets.all(15),
+                    
+                    decoration: BoxDecoration(
+                      color: AppColors.border,
+                      border: Border.all(color: AppColors.captionText, width: 2),
+                      borderRadius: BorderRadius.circular(20),
+                    ),
+                    child: Row(
+                      children: [
+                        Icon(Icons.person, color: AppColors.blue),
+                         Obx((){
+                          final finalselectedRole = roleselectioncontroller.selectedrole.value =="User";
+                          return Checkbox(value: finalselectedRole, onChanged: (Checked){
+                           roleselectioncontroller.selectedrole.value= Checked==true?"User":'';
+                          });
+                        }),
+                        Expanded(
+                          child: Column(
+                            children: [
+                              Text(
+                                "Continue as User",
+                                style: TextStyle(
+                                  fontSize: 24,
+                                  fontWeight: FontWeight.bold,
+                                  color: AppColors.blue,
+                                ),
                               ),
-                            ),
-                            Text(
-                              "Explore Events and book tickets",
-                              style: TextStyle(fontSize: 14),
-                            ),
-                          ],
+                              Text(
+                                "Explore Events and book tickets",
+                                style: TextStyle(fontSize: 14),
+                              ),
+                            ],
+                          ),
                         ),
-                      ),
-                      
-                     
-                      Icon(Icons.arrow_forward, color: AppColors.blue),
-                    ],
+                        
+                       
+                        Icon(Icons.arrow_forward, color: AppColors.blue),
+                      ],
+                    ),
                   ),
                 ),
-              ),
-              InkWell(
-                onTap: () {
-                  roleselectioncontroller.selectedrole.value="Organizer";
-                },
-                child: Container(
-                  padding: EdgeInsets.all(20),
-                  margin: EdgeInsets.all(15),
-                  decoration: BoxDecoration(
-                    color: AppColors.border,
-                    border: Border.all(color: AppColors.captionText, width: 2),
-                    borderRadius: BorderRadius.circular(20),
-                  ),
-                  child: Row(
-                    children: [
-                      
-                      Icon(Icons.calendar_month_outlined, color: AppColors.blue),
-                       Obx((){
-                      final selectedRole = roleselectioncontroller.selectedrole.value=="Organizer";
-                      return Checkbox(value: selectedRole, onChanged: (checked){
-                      
-                         roleselectioncontroller.selectedrole.value = checked==true? "Organizer":'';
-                      });
-          
-                     }),
-                      Expanded(
-                        
-                        child: Column(
-                          children: [
-                            Text(
-                              "Continue as Organizer",
-                              style: TextStyle(
-                                fontSize: 24,
-                                fontWeight: FontWeight.bold,
-                                color: AppColors.blue,
-                              ),
-                            ),
-                            Text(
-                              "Create and manage your events",
-                              style: TextStyle(fontSize: 14),
-                            ),
-                          ],
-                        ),
-                      ),
-                     
-                    
-                      Icon(Icons.arrow_forward, color: AppColors.blue),
-                    ],
-                  ),),
-              ),
-                SizedBox(height: 20,),
-                Text("You can Switch Roles by signing In With another account",style:TextStyle(fontSize: 13,color: AppColors.captionText),),
-                SizedBox(height: 20,),
-                SizedBox(
-                  height: 52,
-                  width: double.infinity,
+                InkWell(
+                  onTap: () {
+                    roleselectioncontroller.selectedrole.value="Organizer";
+                  },
                   child: Container(
-                   
-                    child: ElevatedButton(onPressed: (){
-                      final role = roleselectioncontroller.selectedrole.value;
-                      
-                      if(role =="User"){
-                        Get.offAll(()=> Userlogin());
-                      }
-                      else if(role == "Organizer"){
-                        Get.offAll(()=>Organizerlogin());
-                      }
-                      else{
-                        Get.snackbar("Select a role", "Please select User or Organizer to continue.");
-                      }
-                    },  style: ElevatedButton.styleFrom(
-                      backgroundColor: AppColors.primary,
-                      foregroundColor: AppColors.white,
-
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(14),
-                      ),
-
-                      elevation: 0,
+                    padding: EdgeInsets.all(20),
+                    margin: EdgeInsets.all(15),
+                    decoration: BoxDecoration(
+                      color: AppColors.border,
+                      border: Border.all(color: AppColors.captionText, width: 2),
+                      borderRadius: BorderRadius.circular(20),
                     ),
-                    
-                    child: Text("Continue",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 23,)),
-                                    ),
-                  ),),
-              
-            ],
+                    child: Row(
+                      children: [
+                        
+                        Icon(Icons.calendar_month_outlined, color: AppColors.blue),
+                         Obx((){
+                        final selectedRole = roleselectioncontroller.selectedrole.value=="Organizer";
+                        return Checkbox(value: selectedRole, onChanged: (checked){
+                        
+                           roleselectioncontroller.selectedrole.value = checked==true? "Organizer":'';
+                        });
+            
+                       }),
+                        Expanded(
+                          
+                          child: Column(
+                            children: [
+                              Text(
+                                "Continue as Organizer",
+                                style: TextStyle(
+                                  fontSize: 24,
+                                  fontWeight: FontWeight.bold,
+                                  color: AppColors.blue,
+                                ),
+                              ),
+                              Text(
+                                "Create and manage your events",
+                                style: TextStyle(fontSize: 14),
+                              ),
+                            ],
+                          ),
+                        ),
+                       
+                      
+                        Icon(Icons.arrow_forward, color: AppColors.blue),
+                      ],
+                    ),),
+                ),
+                  SizedBox(height: 20,),
+                  Text("You can Switch Roles by signing In With another account",style:TextStyle(fontSize: 13,color: AppColors.captionText),),
+                  SizedBox(height: 20,),
+                  SizedBox(
+                    height: 52,
+                    width: double.infinity,
+                    child: Container(
+                     
+                      child: ElevatedButton(onPressed: (){
+                        final role = roleselectioncontroller.selectedrole.value;
+                        
+                        if(role =="User"){
+                          Get.offAll(()=> Userlogin());
+                        }
+                        else if(role == "Organizer"){
+                          Get.offAll(()=>Organizerlogin());
+                        }
+                        else{
+                          Get.snackbar("Select a role", "Please select User or Organizer to continue.");
+                        }
+                      },  style: ElevatedButton.styleFrom(
+                        backgroundColor: AppColors.primary,
+                        foregroundColor: AppColors.white,
+        
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(14),
+                        ),
+        
+                        elevation: 0,
+                      ),
+                      
+                      child: Text("Continue",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 23,)),
+                                      ),
+                    ),),
+                
+              ],
+            ),
           ),
+        
         ),
-
       ),
     );
   }

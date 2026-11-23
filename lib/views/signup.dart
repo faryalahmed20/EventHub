@@ -15,24 +15,21 @@ class SignupScreen extends StatefulWidget {
 
 class _SignupScreenState extends State<SignupScreen> {
 
-  // GetX Controller
+ 
   final SignupController controller = Get.put(SignupController());
 
-  // Purane local TextEditingControllers — preserve kiye hain
-  // Ab active TextFields GetX Controller wale use kar rahe hain.
   final nameController = TextEditingController();
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
   final confirmPasswordController = TextEditingController();
 
-  // Purani password visibility variables — preserve kiye hain
-  // Ab active password visibility GetX RxBool se manage hoti hai.
+ 
   bool isPasswordHidden = true;
   bool isConfirmPasswordHidden = true;
 
   @override
   void dispose() {
-    // Purane local controllers dispose
+   
     nameController.dispose();
     emailController.dispose();
     passwordController.dispose();
@@ -109,7 +106,7 @@ class _SignupScreenState extends State<SignupScreen> {
 
                 // Full Name Field
                 TextField(
-                  // GetX Controller ka nameController
+                  
                   controller: controller.nameController,
 
                   decoration: InputDecoration(
