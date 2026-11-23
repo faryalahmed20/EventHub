@@ -208,9 +208,11 @@ class _OrganizerloginState extends State<Organizerlogin> {
                       final password = controller.passwordController.text.trim();
                       if(email != Organizeremail){
                         Get.snackbar("Invalid Email", "Login with Registerd Email");
+                        return;
                       }
                       else if(password != OrganizerPassword){
                         Get.snackbar("Invalid Password", "Enter valid password");
+                        return;
                       }
                       else{
                         Get.snackbar("Success", "Login Successfully");

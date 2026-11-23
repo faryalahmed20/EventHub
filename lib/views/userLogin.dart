@@ -1,7 +1,7 @@
 
 import 'package:eventhub/constants/colors.dart';
 import 'package:eventhub/controller/loginController.dart';
-import 'package:eventhub/views/Signup.dart';
+import 'package:eventhub/views/signup.dart';
 import 'package:eventhub/views/bottomNavigationBar.dart';
 import 'package:eventhub/views/resetPassword.dart';
 import 'package:flutter/material.dart';
