@@ -1,8 +1,45 @@
 import 'package:eventhub/constants/colors.dart';
+import 'package:eventhub/views/checkOut.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
-class BookTickets extends StatelessWidget {
-  const BookTickets({super.key});
+class BookTickets extends StatefulWidget {
+  BookTickets({super.key});
+
+  @override
+  State<BookTickets> createState() => _BookTicketsState();
+}
+
+class _BookTicketsState extends State<BookTickets> {
+  TextEditingController controller = TextEditingController();
+  RxInt count = 0.obs;
+  RxInt amount = 0.obs;
+  RxInt vipcount = 0.obs;
+  RxInt vipamount = 0.obs;
+
+  void increment() {
+    count.value++;
+    amount.value += 2000;
+  }
+
+  void decrement() {
+    if (count.value > 0) {
+      count.value--;
+      amount.value -= 2000;
+    }
+  }
+
+  void vipincrement() {
+    vipcount.value++;
+    vipamount.value += 4000;
+  }
+
+  void vipdecrement() {
+    if (vipcount.value > 0) {
+      vipcount.value--;
+      vipamount.value -= 4000;
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -125,7 +162,7 @@ class BookTickets extends StatelessWidget {
                           color: AppColors.surface,
                           borderRadius: BorderRadius.circular(32),
                         ),
-                        child: const Row(
+                        child: Row(
                           children: [
                             Expanded(
                               child: Column(
@@ -141,7 +178,7 @@ class BookTickets extends StatelessWidget {
                                   ),
                                   SizedBox(height: 4),
                                   Text(
-                                    'Rs. 2,000',
+                                    'Rs.2,000',
                                     style: TextStyle(
                                       color: AppColors.primary,
                                       fontSize: 18,
@@ -154,33 +191,49 @@ class BookTickets extends StatelessWidget {
                             CircleAvatar(
                               radius: 17,
                               backgroundColor: AppColors.sageLight,
-                              child: Icon(Icons.remove, size: 16, color: AppColors.primary),
+                              child: InkWell(
+                                onTap: decrement,
+                                child: Icon(
+                                  Icons.remove,
+                                  size: 16,
+                                  color: AppColors.primary,
+                                ),
+                              ),
                             ),
                             SizedBox(width: 12),
-                            Text(
-                              '1',
-                              style: TextStyle(
-                                color: AppColors.primary,
-                                fontWeight: FontWeight.bold,
+                            Obx(
+                              () => Text(
+                                '${count.value}',
+                                style: TextStyle(
+                                  color: AppColors.primary,
+                                  fontWeight: FontWeight.bold,
+                                ),
                               ),
                             ),
                             SizedBox(width: 12),
                             CircleAvatar(
                               radius: 17,
                               backgroundColor: AppColors.sageLight,
-                              child: Icon(Icons.add, size: 16, color: AppColors.primary),
+                              child: InkWell(
+                                onTap: increment,
+                                child: Icon(
+                                  Icons.add,
+                                  size: 16,
+                                  color: AppColors.primary,
+                                ),
+                              ),
                             ),
                           ],
                         ),
                       ),
-                      const SizedBox(height: 10),
+                      SizedBox(height: 10),
                       Container(
                         padding: const EdgeInsets.all(16),
                         decoration: BoxDecoration(
                           color: AppColors.surface,
                           borderRadius: BorderRadius.circular(32),
                         ),
-                        child: const Row(
+                        child: Row(
                           children: [
                             Expanded(
                               child: Column(
@@ -209,32 +262,48 @@ class BookTickets extends StatelessWidget {
                             CircleAvatar(
                               radius: 17,
                               backgroundColor: AppColors.sageLight,
-                              child: Icon(Icons.remove, size: 16, color: AppColors.primary),
+                              child: InkWell(
+                                onTap: vipdecrement,
+                                child: Icon(
+                                  Icons.remove,
+                                  size: 16,
+                                  color: AppColors.primary,
+                                ),
+                              ),
                             ),
                             SizedBox(width: 12),
-                            Text(
-                              '0',
-                              style: TextStyle(
-                                color: AppColors.primary,
-                                fontWeight: FontWeight.bold,
+                            Obx(
+                              () => Text(
+                                '${vipcount.value}',
+                                style: TextStyle(
+                                  color: AppColors.primary,
+                                  fontWeight: FontWeight.bold,
+                                ),
                               ),
                             ),
                             SizedBox(width: 12),
                             CircleAvatar(
                               radius: 17,
                               backgroundColor: AppColors.sageLight,
-                              child: Icon(Icons.add, size: 16, color: AppColors.primary),
+                              child: InkWell(
+                                onTap: vipincrement,
+                                child: Icon(
+                                  Icons.add,
+                                  size: 16,
+                                  color: AppColors.primary,
+                                ),
+                              ),
                             ),
                           ],
                         ),
                       ),
                       const SizedBox(height: 22),
-                      const Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 4),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 4),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Text(
+                            const Text(
                               'Total Amount',
                               style: TextStyle(
                                 color: AppColors.primary,
@@ -242,12 +311,14 @@ class BookTickets extends StatelessWidget {
                                 fontWeight: FontWeight.bold,
                               ),
                             ),
-                            Text(
-                              'Rs. 2,000',
-                              style: TextStyle(
-                                color: AppColors.primary,
-                                fontSize: 17,
-                                fontWeight: FontWeight.bold,
+                            Obx(
+                              () => Text(
+                                'Rs. ${amount.value + vipamount.value}',
+                                style: const TextStyle(
+                                  color: AppColors.primary,
+                                  fontSize: 17,
+                                  fontWeight: FontWeight.bold,
+                                ),
                               ),
                             ),
                           ],
@@ -262,7 +333,9 @@ class BookTickets extends StatelessWidget {
                 width: double.infinity,
                 height: 50,
                 child: ElevatedButton(
-                  onPressed:(){},
+                  onPressed: () {
+                    Get.to(() => Checkout());
+                  },
                   style: ElevatedButton.styleFrom(
                     disabledBackgroundColor: AppColors.primary,
                     disabledForegroundColor: AppColors.onPrimary,

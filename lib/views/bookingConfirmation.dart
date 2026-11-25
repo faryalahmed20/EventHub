@@ -1,6 +1,9 @@
 import 'package:eventhub/constants/colors.dart';
+import 'package:eventhub/views/homeScreen.dart';
+import 'package:eventhub/views/myBookings.dart';
 
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import 'package:google_fonts/google_fonts.dart';
 
@@ -18,7 +21,7 @@ class BookingConfirmedScreen extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
 
-            // Confirmation information
+            
             Column(
               children: [
 
@@ -68,20 +71,16 @@ class BookingConfirmedScreen extends StatelessWidget {
               ],
             ),
 
-            // Bottom buttonsssssssssssss
+            
             Column(
               children: [
 
-                // View Ticket
+                
                 SizedBox(
                   width: double.infinity,
                   child: ElevatedButton(
                     onPressed: () {
-                      ScaffoldMessenger.of(context).showSnackBar(
-                        const SnackBar(
-                          content: Text("Opening ticket"),
-                        ),
-                      );
+                      Get.to(()=>Mybookings());
                     },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: AppColors.primary,
@@ -100,12 +99,12 @@ class BookingConfirmedScreen extends StatelessWidget {
 
                 const SizedBox(height: 8),
 
-                // Back to Home
+                
                 SizedBox(
                   width: double.infinity,
                   child: OutlinedButton(
                     onPressed: () {
-                      // Get.at(()=>Homescreen());
+                      Get.to(()=> HomeScreen ());
 
                     },
                     style: OutlinedButton.styleFrom(

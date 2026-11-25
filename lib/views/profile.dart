@@ -1,5 +1,7 @@
 import 'package:eventhub/constants/colors.dart';
+import 'package:eventhub/views/notification.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 
@@ -29,7 +31,7 @@ class ProfileScreen extends StatelessWidget {
 
               const SizedBox(height: 40),
 
-              // Profile Avatar
+             
               CircleAvatar(
                 radius: 29,
                 backgroundColor: AppColors.primary,
@@ -44,7 +46,7 @@ class ProfileScreen extends StatelessWidget {
 
               const SizedBox(height: 8),
 
-              // Name
+              
               Text(
                 userName,
                 style: GoogleFonts.sora(
@@ -54,7 +56,7 @@ class ProfileScreen extends StatelessWidget {
                 ),
               ),
 
-              // Email
+           
               Text(
                 email,
                 style: GoogleFonts.dmSans(
@@ -65,7 +67,7 @@ class ProfileScreen extends StatelessWidget {
 
               const SizedBox(height: 15),
 
-              // Bookings, Rating, Wallet Card
+              
               Container(
                 width: double.infinity,
                 margin: const EdgeInsets.symmetric(horizontal: 5),
@@ -157,7 +159,7 @@ class ProfileScreen extends StatelessWidget {
               ),
 
               const SizedBox(height: 10),
-             // My Bookings
+             
               ListTile(
                 dense: true,
                 leading: const Icon(
@@ -203,45 +205,50 @@ class ProfileScreen extends StatelessWidget {
               ),
               Divider(color: AppColors.border, height: 1),
 
-              // Notifications
-              ListTile(
-                dense: true,
-                leading: const Icon(
-                  Icons.notifications_none,
-                  size: 17,
-                  color: AppColors.primary,
-                ),
-                title: Text(
-                  "Notifications",
-                  style: GoogleFonts.dmSans(
-                    fontSize: 12,
+              
+              InkWell(
+                onTap: (){
+                  Get.to(()=>NotificationsScreen());
+                },
+                child: ListTile(
+                  dense: true,
+                  leading: const Icon(
+                    Icons.notifications_none,
+                    size: 17,
                     color: AppColors.primary,
                   ),
-                ),
-                trailing: Row(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    Container(
-                      padding: const EdgeInsets.all(4),
-                      decoration: const BoxDecoration(
-                        color: Colors.red,
-                        shape: BoxShape.circle,
-                      ),
-                      child: const Text(
-                        "2",
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 8,
-                        ),
-                      ),
-                    ),
-                    const SizedBox(width: 8),
-                    const Icon(
-                      Icons.chevron_right,
-                      size: 18,
+                  title: Text(
+                    "Notifications",
+                    style: GoogleFonts.dmSans(
+                      fontSize: 12,
                       color: AppColors.primary,
                     ),
-                  ],
+                  ),
+                  trailing: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Container(
+                        padding: const EdgeInsets.all(4),
+                        decoration: const BoxDecoration(
+                          color: Colors.red,
+                          shape: BoxShape.circle,
+                        ),
+                        child: const Text(
+                          "2",
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 8,
+                          ),
+                        ),
+                      ),
+                      const SizedBox(width: 8),
+                      const Icon(
+                        Icons.chevron_right,
+                        size: 18,
+                        color: AppColors.primary,
+                      ),
+                    ],
+                  ),
                 ),
               ),
               Divider(color: AppColors.border, height: 1),

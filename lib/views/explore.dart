@@ -1,5 +1,6 @@
 import 'package:eventhub/constants/colors.dart';
 import 'package:eventhub/models/eventModel.dart';
+import 'package:eventhub/views/eventDetails.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -20,10 +21,7 @@ class ExploreEvents extends StatelessWidget {
         leading: const BackButton(),
         title: const Text(
           'Explore Events',
-          style: TextStyle(
-            fontSize: 18,
-            fontWeight: FontWeight.bold,
-          ),
+          style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
         ),
         actions: const [
           Padding(
@@ -46,24 +44,18 @@ class ExploreEvents extends StatelessWidget {
                 decoration: BoxDecoration(
                   color: AppColors.surface,
                   borderRadius: BorderRadius.circular(28),
-                  border: Border.all(
-                    color: AppColors.border,
-                    width: 2,
-                  ),
+                  border: Border.all(color: AppColors.border, width: 2),
                 ),
-                child: const Row(
-                  children: [
-                    Icon(
-                      Icons.search,
-                      size: 20,
-                      color: AppColors.mutedText,
+                child: Expanded(
+                  child: TextField(
+                    style: TextStyle(color: AppColors.primary),
+                    decoration: InputDecoration(
+                      hintText: 'Search events',
+                      hintStyle: TextStyle(color: AppColors.captionText),
+                      border: InputBorder.none,
+                      
                     ),
-                    SizedBox(width: 10),
-                    Text(
-                      'Search events',
-                      style: TextStyle(color: AppColors.captionText),
-                    ),
-                  ],
+                  ),
                 ),
               ),
               const SizedBox(height: 12),
@@ -151,7 +143,9 @@ class ExploreEvents extends StatelessWidget {
                         padding: const EdgeInsets.only(bottom: 12),
                         child: InkWell(
                           borderRadius: BorderRadius.circular(30),
-                          onTap: () {},
+                          onTap: () {
+                            Get.to(() => EventDetails());
+                          },
                           child: Container(
                             padding: const EdgeInsets.all(10),
                             decoration: BoxDecoration(
@@ -176,7 +170,8 @@ class ExploreEvents extends StatelessWidget {
                                 const SizedBox(width: 12),
                                 Expanded(
                                   child: Column(
-                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
                                     children: [
                                       Center(
                                         child: Text(

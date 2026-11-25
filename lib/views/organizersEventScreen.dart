@@ -27,11 +27,9 @@ class _OrganizerseventscreenState extends State<Organizerseventscreen> {
       body: GetBuilder<MyEventController>(
         builder: (controller) {
           final newevents = controller.events;
-          
+
           if (newevents.isEmpty) {
-            return const Center(
-              child: Text('No Event found'),
-            );
+            return const Center(child: Text('No Event found'));
           }
 
           return ListView.builder(
@@ -39,7 +37,7 @@ class _OrganizerseventscreenState extends State<Organizerseventscreen> {
             itemCount: newevents.length,
             itemBuilder: (context, index) {
               final item = newevents[index];
-              
+
               return Container(
                 margin: const EdgeInsets.only(bottom: 12),
                 padding: const EdgeInsets.all(12),
@@ -51,14 +49,16 @@ class _OrganizerseventscreenState extends State<Organizerseventscreen> {
                 child: Row(
                   children: [
                     Container(
+                      width: 76,
+                      height: 90,
                       decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(12),
-                      ),
-                        child: Image.asset(
-                        'assets/images/event image.png',
-                        width: 76,
-                        height: 90,
-                        fit: BoxFit.cover,
+                        borderRadius: BorderRadius.circular(20),
+                        
+                        image: DecorationImage(
+                          image: AssetImage(
+                            'assets/images/event image.png',),
+                            fit: BoxFit.cover
+                        ),
                       ),
                     ),
 

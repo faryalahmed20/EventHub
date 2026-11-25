@@ -1,7 +1,7 @@
 import 'package:get/get.dart';
 
 class Eventmodel{
-   final String event;
+  final String event;
   final String category;
   final String venue;
   final String description;

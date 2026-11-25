@@ -1,4 +1,3 @@
-
 import 'package:eventhub/constants/colors.dart';
 import 'package:flutter/material.dart';
 
@@ -25,7 +24,7 @@ class _MybookingsState extends State<Mybookings> {
         title: Text(
           'My Bookings',
           style: TextStyle(
-            fontSize: 18,
+            fontSize: 16,
             fontWeight: FontWeight.bold,
             color: AppColors.primary,
           ),
@@ -43,23 +42,29 @@ class _MybookingsState extends State<Mybookings> {
                   children: [
                     Expanded(
                       child: ElevatedButton(
-                        onPressed: (){},
+                        onPressed: () {},
                         style: ElevatedButton.styleFrom(
                           backgroundColor: AppColors.blue,
                           foregroundColor: Colors.white,
                         ),
-                        child: const Text('Upcoming'),
+                        child: const Text(
+                          'Upcoming',
+                          style: TextStyle(fontSize: 12),
+                        ),
                       ),
                     ),
                     const SizedBox(width: 10),
                     Expanded(
                       child: ElevatedButton(
-                        onPressed: (){},
+                        onPressed: () {},
                         style: ElevatedButton.styleFrom(
                           disabledBackgroundColor: const Color(0xFFFBF8F2),
                           disabledForegroundColor: const Color(0xFF738398),
                         ),
-                        child: const Text('Past'),
+                        child: const Text(
+                          'Past',
+                          style: TextStyle(fontSize: 12),
+                        ),
                       ),
                     ),
                   ],
@@ -98,7 +103,7 @@ class _MybookingsState extends State<Mybookings> {
                                 'Tech Summit 2026',
                                 textAlign: TextAlign.center,
                                 style: TextStyle(
-                                  fontSize: 16,
+                                  fontSize: 14,
                                   fontWeight: FontWeight.bold,
                                   color: AppColors.primary,
                                 ),
@@ -117,8 +122,8 @@ class _MybookingsState extends State<Mybookings> {
                                   child: Text(
                                     'Dec 12, 2026 • 6:00 PM',
                                     style: TextStyle(
-                                      fontSize: 12,
-                                      color:AppColors.captionText,
+                                      fontSize: 11,
+                                      color: AppColors.captionText,
                                     ),
                                   ),
                                 ),
@@ -137,7 +142,7 @@ class _MybookingsState extends State<Mybookings> {
                                   child: Text(
                                     'Expo Centre, Karachi',
                                     style: TextStyle(
-                                      fontSize: 12,
+                                      fontSize: 11,
                                       color: AppColors.captionText,
                                     ),
                                   ),
@@ -158,7 +163,7 @@ class _MybookingsState extends State<Mybookings> {
                                 'Confirmed',
                                 style: TextStyle(
                                   color: AppColors.darkSuccess,
-                                  fontSize: 11,
+                                  fontSize: 10,
                                   fontWeight: FontWeight.w600,
                                 ),
                               ),
@@ -177,9 +182,8 @@ class _MybookingsState extends State<Mybookings> {
                     borderRadius: BorderRadius.circular(30),
                     boxShadow: const [
                       BoxShadow(
-                        color: Color(0x14000000),
-                        blurRadius: 16,
-                        offset: Offset(0, 6),
+                        color: AppColors.black05,
+                        
                       ),
                     ],
                   ),
@@ -190,7 +194,7 @@ class _MybookingsState extends State<Mybookings> {
                         padding: const EdgeInsets.fromLTRB(16, 16, 16, 8),
                         decoration: BoxDecoration(
                           color: AppColors.blue,
-                         borderRadius: BorderRadius.circular(20)
+                          borderRadius: BorderRadius.circular(20),
                         ),
                         child: const Column(
                           children: [
@@ -207,7 +211,7 @@ class _MybookingsState extends State<Mybookings> {
                                   'EventHub',
                                   style: TextStyle(
                                     color: Colors.white,
-                                    fontSize: 14,
+                                    fontSize: 12,
                                     fontWeight: FontWeight.bold,
                                   ),
                                 ),
@@ -218,7 +222,7 @@ class _MybookingsState extends State<Mybookings> {
                               'Your Ticket • 1 x General Pass',
                               style: TextStyle(
                                 color: Colors.white,
-                                fontSize: 12,
+                                fontSize: 11,
                               ),
                             ),
                           ],
@@ -239,7 +243,7 @@ class _MybookingsState extends State<Mybookings> {
                               textAlign: TextAlign.center,
                               style: TextStyle(
                                 color: AppColors.primary,
-                                fontSize: 14,
+                                fontSize: 12,
                                 fontWeight: FontWeight.bold,
                               ),
                             ),
@@ -247,7 +251,7 @@ class _MybookingsState extends State<Mybookings> {
                             SizedBox(
                               width: double.infinity,
                               child: ElevatedButton.icon(
-                                onPressed:(){},
+                                onPressed: () {},
                                 style: ElevatedButton.styleFrom(
                                   backgroundColor: AppColors.blue,
                                   foregroundColor: AppColors.border,
@@ -256,7 +260,10 @@ class _MybookingsState extends State<Mybookings> {
                                   Icons.file_download_outlined,
                                   size: 17,
                                 ),
-                                label: const Text('Download Ticket'),
+                                label: const Text(
+                                  'Download Ticket',
+                                  style: TextStyle(fontSize: 12),
+                                ),
                               ),
                             ),
                             const SizedBox(height: 6),
@@ -265,7 +272,7 @@ class _MybookingsState extends State<Mybookings> {
                               textAlign: TextAlign.center,
                               style: TextStyle(
                                 color: AppColors.captionText,
-                                fontSize: 11,
+                                fontSize: 10,
                               ),
                             ),
                           ],

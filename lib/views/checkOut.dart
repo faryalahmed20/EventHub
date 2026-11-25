@@ -1,5 +1,7 @@
 import 'package:eventhub/constants/colors.dart';
+import 'package:eventhub/views/bookingConfirmation.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class Checkout extends StatelessWidget {
   const Checkout({super.key});
@@ -176,7 +178,9 @@ class Checkout extends StatelessWidget {
                 width: double.infinity,
                 height: 50,
                 child: ElevatedButton(
-                  onPressed: (){},
+                  onPressed: (){
+                    Get.to(()=>BookingConfirmedScreen());
+                  },
                   style: ElevatedButton.styleFrom(
                     disabledBackgroundColor: AppColors.primary,
                     disabledForegroundColor: AppColors.onPrimary,

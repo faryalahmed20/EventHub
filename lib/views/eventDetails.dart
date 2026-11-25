@@ -1,6 +1,8 @@
 
 import 'package:eventhub/constants/colors.dart';
+import 'package:eventhub/views/bookTickets.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class EventDetails extends StatelessWidget {
   const EventDetails({super.key});
@@ -179,7 +181,9 @@ class EventDetails extends StatelessWidget {
                   const SizedBox(width: 12),
                   Expanded(
                     child: ElevatedButton(
-                      onPressed: null,
+                      onPressed: (){
+                        Get.to(()=>BookTickets());
+                      },
                       style: ElevatedButton.styleFrom(
                         disabledBackgroundColor: AppColors.primary,
                         disabledForegroundColor: AppColors.onPrimary,
